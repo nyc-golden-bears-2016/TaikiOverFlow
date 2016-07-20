@@ -4,7 +4,7 @@
 
   <% @questions.each do |question| %>
   <div class="question_summary">
-      <section class="rating">1 votes</section>
+      <section class="rating"><%=  vote_count(question.votes) %></section>
       <article class="summary"><a href="/questions/<%=  question.id%>"><%= question.title%></a></article>
   </div>
   <% end %>
