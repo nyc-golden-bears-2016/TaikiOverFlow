@@ -8,8 +8,6 @@
 <% if logged_in? %>
   <form action="/answer" method="post">
     <textarea type="text" name="answer[body]"></textarea>
-    <input type="hidden", value= <%= @question.id %> name="answer[question_id]">
-    <input type="hidden", value= <%= session[:user_id] %> name="answer[user_id]">
     <input type="submit" value="Post Your Answer">
   </form>
 <% end %>

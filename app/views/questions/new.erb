@@ -3,9 +3,5 @@
 <form action="/questions" method="POST">
   <input type="text" name="question[title]" placeholder="title">
   <textarea type="text" name="question[body]" placeholder="body"></textarea>
-  <input type="hidden", value= <%= session[:user_id] %> name="answer[user_id]">
   <input type="submit" value="Create!">
-
-
-
 </form>

@@ -16,7 +16,7 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  new_question = Question.create(params[:question])
+  new_question = Question.create(params[:question].merge(user_id: current_user))
 
   if new_question.save
     redirect '/'
