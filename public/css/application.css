@@ -1,0 +1,31 @@
+*{
+    box-sizing:border-box;
+}
+.list-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.rating,.summary {
+    padding: 10px 15px;
+    display: inline;
+    border-top: 1px solid #999;
+    float: left;
+}
+
+.rating{border-right:1px solid #999;}
+
+
+
+section {
+    padding: 15px;
+}
+
+
+
+section.rating {
+    max-width: 20%;
+}
+
+article.summary {
+    width: 90%;
+}
