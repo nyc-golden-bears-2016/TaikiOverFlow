@@ -5,6 +5,13 @@
 <div>
 <%= @question.body %>
 </div>
+
+<% @answers.each do |a|  %>
+<div class="answer"><%= a.body %></div>
+<% end %>
+
+
+
 <form action="/answers" method="post">
   <textarea type="text" name="answer"></textarea>
   <input type="submit" value="Post Your Answer">
