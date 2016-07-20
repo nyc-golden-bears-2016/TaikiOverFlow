@@ -1,13 +1,3 @@
-get '/home' do
-  erb :'login/home'
-end
-
-get '/logged_in/:id' do
-  @user = current_user
-  erb :'login/logged_in'
-end
-
-
 get '/register' do
 
   erb :'login/register'

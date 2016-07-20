@@ -5,7 +5,14 @@ get '/' do
 end
 
 get '/questions/new' do
-  erb :'/questions/new'
+
+  if logged_in?
+    erb :'/questions/new'
+  else
+    @error = ["You Must Be Logged In To Post A Question"]
+    erb :'login/error'
+  end
+
 end
 
 post '/questions' do
@@ -14,16 +21,16 @@ post '/questions' do
   if new_question.save
     redirect '/'
   else
-    "error"
+    @error = ["Not all fields added"]
+    erb :'login/error'
   end
 end
 
 get '/questions/:id' do
 
-  @question = Question.find(params[:id])
+    @question = Question.find(params[:id])
+    session[:question_id] = params[:id]
+    erb :'questions/show'
 
-  session[:question_id] = params[:id]
-
-  erb :'questions/show'
 end
 
