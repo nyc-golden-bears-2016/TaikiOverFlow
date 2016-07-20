@@ -1,0 +1,11 @@
+<div class="list-wrap">
+  <section>Top Question</section>
+
+
+  <% @questions.each do |question| %>
+  <div class="question_summary">
+      <section class="rating">1 votes</section>
+      <article class="summary"><a href="/questions/<%=  question.id%>"><%= question.title%></a></article>
+  </div>
+  <% end %>
+</div>

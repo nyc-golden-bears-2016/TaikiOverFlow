@@ -1,0 +1,12 @@
+<h1>Question</h1>
+<div>
+<%= @question.title %>
+</div>
+<div>
+<%= @question.body %>
+</div>
+<form action="/answers" method="post">
+  <textarea type="text" name="answer"></textarea>
+  <input type="submit" value="Post Your Answer">
+
+</form>
