@@ -6,7 +6,7 @@ class CreateVotes < ActiveRecord::Migration
       t.integer :votable_id
       t.integer :user_id, foreign_key: true
 
-      t.timestamps nul: false
+      t.timestamps null: false
     end
   end
 end
