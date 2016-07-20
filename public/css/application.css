@@ -23,9 +23,9 @@ section {
 
 
 section.rating {
-    max-width: 20%;
+    width: 20%;
 }
 
 article.summary {
-    width: 90%;
+    width: 80%;
 }
