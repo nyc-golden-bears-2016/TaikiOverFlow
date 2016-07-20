@@ -5,6 +5,8 @@
 <div>
 <%= @question.body %>
 </div>
+
+
 <% if logged_in? %>
   <form action="/answer" method="post">
     <textarea type="text" name="answer[body]"></textarea>
