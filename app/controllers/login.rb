@@ -23,7 +23,8 @@ post '/register' do
     session[:user_id] = @new_user.id
     redirect "/logged_in/#{session[:user_id]}"
   else
-    redirect "/register"
+    @error = ["Not All Information Supplied For Registration"]
+    erb :'login/error'
   end
 end
 
@@ -39,7 +40,8 @@ post '/login' do
       session[:user_id] = user.id
     redirect "/logged_in/#{session[:user_id]}"
     else
-      erb :'login/login'
+      @error = ["Incorrect User Name or Password"]
+      erb :'login/error'
     end
 end
 
