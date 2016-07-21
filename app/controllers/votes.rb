@@ -31,12 +31,10 @@ if logged_in?
     @vote = Vote.new(value: 1)
 
     Answer.find(params[:id]).votes << @vote
-    # current_answer.votes << @vote
 
   elsif params[:uservote] == "downvote"
     @vote = Vote.new(value: -1)
   Answer.find(params[:id]).votes << @vote
-    # current_answer.votes << @vote
   end
 
   answer_question_id = Answer.find(params[:id]).question_id

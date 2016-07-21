@@ -16,11 +16,46 @@
     <div class="col-2">
       <div class="question-body">
         <%= @question.body %>
+          <% if logged_in? %>
+            <div id="comment-form" class="form-wrap">
+            <form class="form" action="/comments/<%=@question.id%>" method="post">
+              <div>
+                <label for="question">Comment:</label>
+                <textarea rows='3' type="text" name="comment[body]"></textarea>
+              </div>
+              <input type="submit" value="Comment">
+            </form>
+            </div>
+          <% end %>
+
       </div>
     </div>
 </div>
 
 
+
+
+<% @answers.each do |a|  %>
+   <% @comments.each do |comment| %>
+      <div class="question-answer"><%= a.body %></div>
+      <div class="comment-answer"><%= comment.body %></div>
+
+     <% if logged_in? %>
+            <div id="comment-form" class="form-wrap">
+            <form class="form" action="/comments/<%=a.id%>" method="post">
+              <div>
+                <label for="abswer">Comment:</label>
+                <textarea rows='3' type="text" name="comment[body]"></textarea>
+              </div>
+              <input type="submit" value="Comment">
+            </form>
+            </div>
+      <% end %>
+
+
+
+
+  <% end %>
 
 
 
@@ -44,6 +79,13 @@
  <% end %>
 
 
+
+
+<% end %>
+
+
+
+
 <% if logged_in? %>
   <div id="answer-form" class="form-wrap">
   <form class="form" action="/answers" method="post">
@@ -54,4 +96,5 @@
     <input type="submit" value="Post Your Answer">
   </form>
   </div>
+
 <% end %>
