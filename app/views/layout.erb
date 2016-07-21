@@ -20,16 +20,25 @@
 <body>
   <header>
     <div class="top-bar">
+      <div class="contain">
+       <% if logged_in? %>
+      <span class="current_user">logged in as <%= current_user.name %></span>
+        <% end %>
       <nav id="nav">
         <ul>
+          <% if logged_in? %>
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/questions/new">Post New Question</a></li>
+          <%else%>
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
-          <li><a href="/questions/new">Post New Question</a></li>
+          <% end %>
         </ul>
       </nav>
     </div>
+    </div>
     <div class="contain">
-      <div class="Logo">logo here</div>
+      <div class="Logo"><a href="/">logo here</a></div>
       <div></div>
     </div>
   </header>
