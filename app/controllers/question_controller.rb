@@ -29,6 +29,7 @@ end
 get '/questions/:id' do
   @answers = Answer.where(question_id: params[:id])
   @question = Question.find(params[:id])
+  @comments = Comment.all
   session[:question_id] = params[:id]
 
     erb :'questions/show'
