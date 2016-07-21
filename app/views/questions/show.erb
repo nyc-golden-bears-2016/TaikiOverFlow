@@ -47,12 +47,14 @@
             <form action="/answers/votes/<%= a.id  %>" method="post">
         <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
       </form>
+<!--
 <% if current_user.questions.include?(current_question) %>
        <form action="/best_answer/<%= a.id  %>" method="post">
   <input type="hidden" name="_method" value="PUT">
   <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
 </form>
 <% end %>
+-->
   </div>
   <div class="col-2 ">
 
