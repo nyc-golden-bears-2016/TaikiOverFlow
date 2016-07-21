@@ -6,7 +6,6 @@ helpers do
 
   def current_answer
      Answer.find(session[:answer_id])
-   end
-
+  end
 
 end

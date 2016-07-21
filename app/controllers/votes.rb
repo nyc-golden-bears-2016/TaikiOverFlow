@@ -27,6 +27,7 @@ end
 
 post '/answers/votes/:id' do
 
+
   if logged_in? && !has_voted?(current_user.id)
     if params[:uservote] == "upvote"
       @vote = Vote.new(value: 1)
@@ -42,6 +43,7 @@ post '/answers/votes/:id' do
     else
       redirect "/questions/#{answer_question_id}"
     end
+
 
   else
     @error = "You must login to vote"

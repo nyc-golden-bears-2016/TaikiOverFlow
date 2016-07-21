@@ -4,4 +4,3 @@ get '/' do
   erb :'/questions/index'
 end
 
-# can we delete this index rb?
