@@ -1,5 +1,5 @@
-get '/home' do
-  erb :'login/home'
+get '/login' do
+  erb :'login/login'
 end
 
 get '/logged_in/:id' do
@@ -28,11 +28,7 @@ post '/register' do
   end
 end
 
-get '/login' do
 
-  erb :'login/login'
-
-end
 
 post '/login' do
   user = User.find_by(email: params[:user][:email])

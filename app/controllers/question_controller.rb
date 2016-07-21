@@ -19,7 +19,7 @@ post '/questions' do
 end
 
 get '/questions/:id' do
-
+  @answers = Answer.where(question_id: params[:id])
   @question = Question.find(params[:id])
 
   session[:question_id] = params[:id]
@@ -27,3 +27,6 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
+get '/questions' do
+  redirect '/'
+end
