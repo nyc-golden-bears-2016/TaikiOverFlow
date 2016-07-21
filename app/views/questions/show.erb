@@ -41,7 +41,7 @@
 <% @answers.each do |answer|  %>
 
     <% if answer.best_answer == true %>
-      <p>BEST ANSWER: answer</p>
+      <p>BEST ANSWER: <%= answer.body %></p>
     <%end%>
 
 <%end%>
@@ -58,17 +58,22 @@
             <form action="/answers/votes/<%= a.id  %>" method="post">
         <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
       </form>
-<!--
+
 <% if current_user.questions.include?(current_question) %>
-       <form action="/best_answer/<%= a.id  %>" method="post">
-  <input type="hidden" name="_method" value="PUT">
-  <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
-</form>
+         <form action="/best_answer/<%= a.id  %>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
+  </form>
 <% end %>
--->
+
   </div>
   <div class="col-2 ">
-    <div class="question-answeår"><%= a.body %></div>
+
+    <% if a.best_answer == false %>
+        <div class="question-answeår"><%= a.body %></div>
+    <%end%>
+
+
       <% a.comments.each do |comment| %>
       <div class="comment-answer"><%= comment.body %></div>
       <% end %>
