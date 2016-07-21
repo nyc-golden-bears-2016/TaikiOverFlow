@@ -19,15 +19,22 @@
 </head>
 <body>
   <header>
-    <div>StackOverflow</div>
-    <nav>
-      <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/questions/new">Post New Question</a></li>
-      </ul>
-    </nav>
+    <div class="top-bar">
+      <nav id="nav">
+        <ul>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/questions/new">Post New Question</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="contain">
+      <div class="Logo">logo here</div>
+      <div></div>
+    </div>
   </header>
+  <main class="contain">
   <%= yield %>
+  <main>
 </body>
 </html>

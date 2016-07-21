@@ -1,10 +1,15 @@
 <h1>New Question</h1>
 <p>this page will be hidden and button until logged in</p>
-<form action="/questions" method="POST">
-  <input type="text" name="question[title]" placeholder="title">
-  <textarea type="text" name="question[body]" placeholder="body"></textarea>
-  <input type="submit" value="Create!">
-
-
-
-</form>
+<div id="question-form" class="form-wrap">
+  <form id="form-new" class="form" action="/questions" method="POST">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" name="question[title]" placeholder="title">
+    </div>
+    <div class="">
+      <label for="question">Question:</label>
+      <textarea type="text" name="question[body]" placeholder="body" rows="10"></textarea>
+    </div>
+    <input type="submit" value="Create!">
+  </form>
+</div>
