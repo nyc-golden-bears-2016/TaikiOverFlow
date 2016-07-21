@@ -235,3 +235,11 @@ span.counter:after {
     border-color:#999 transparent transparent transparent;
     border-style:solid;
 }
+
+
+/*statuses */
+
+.current_user {
+    color: #fff;
+    float: left;
+}
