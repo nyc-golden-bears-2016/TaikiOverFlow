@@ -5,8 +5,3 @@ post "/answer" do
 
   if answer.save
     redirect "/questions/#{current_question.id}"
-  else
-    error
-  end
-
-end

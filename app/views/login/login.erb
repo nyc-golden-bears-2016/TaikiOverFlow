@@ -1,20 +1,16 @@
-<div class="container">
-  <h1>Log in</h1>
-  <form action="/login" method="post">
-      <div>
-        email:
-        <input type="text" name="user[email]">
-      </div>
-      <br>
-      <div>
-        Password:
-        <input type="password" name="user[password]">
-      </div>
-      <br><br>
-    <input type="submit" value="Log In">
-  </form>
-  <br><br>
-  <ul>
-  <li>I need to <a href='/register'> register</a>.</li>
-  </ul>
-</div>
+  <h1 class="center-text">login</h1>
+  <div class="center-align">
+    <div class="form-wrap">
+      <form id="login" class="form" action="/login" method="post">
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" name="user[email]" placeholder="email@eamil.com">
+        </div>
+        <div>
+          <label for="password"> Password:</label>
+          <input type="password" name="user[password]" placeholder="password">
+        </div>
+        <input type="submit" value="Log In">
+      </form>
+    </div>
+  </div>

@@ -1,3 +1,7 @@
+get '/login' do
+  erb :'login/login'
+end
+
 get '/register' do
 
   erb :'login/register'
@@ -18,11 +22,7 @@ post '/register' do
   end
 end
 
-get '/login' do
 
-  erb :'login/login'
-
-end
 
 post '/login' do
   user = User.find_by(email: params[:user][:email])

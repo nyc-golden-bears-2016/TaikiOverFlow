@@ -1,15 +1,36 @@
 <h1>Question</h1>
-<div>
-<%= @question.title %>
+
+<div class="question-header">
+  <h2><%= @question.title %></h2>
 </div>
-<div>
-<%= @question.body %>
+<div class="col-group">
+    <div class="col-1 vote">
+      <span class="counter">0</span>
+    </div>
+    <div class="col-2">
+      <div class="question-body">
+        <%= @question.body %>
+      </div>
+    </div>
 </div>
+
 
 
 <% if logged_in? %>
-  <form action="/answer" method="post">
-    <textarea type="text" name="answer[body]"></textarea>
+  <% @answers.each do |a|  %>
+    <div class="question-answer"><%= a.body %></div>
+  <% end %>
+
+
+
+  <div id="answer-form" class="form-wrap">
+  <form class="form" action="/answers" method="post">
+    <div>
+      <label for="question">Answer:</label>
+      <textarea rows='10' type="text" name="answer"></textarea>
+    </div>
     <input type="submit" value="Post Your Answer">
   </form>
+  </div>
+
 <% end %>
