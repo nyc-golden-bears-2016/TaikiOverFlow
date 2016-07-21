@@ -8,5 +8,6 @@ Question.create! [
 
 User.create! [
   {name: 'css_prodigy', email: 'cs@csmail.com', password: 'css123'},
-  {name: 'html_genius', email: 'hg@hgmail.com', password: 'html123'}
+  {name: 'html_genius', email: 'hg@hgmail.com', password: 'html123'},
+  {name: 'Test User', email: 'test@test.com', password: 'test123'}
 ]
