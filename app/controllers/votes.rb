@@ -7,7 +7,7 @@ post '/questions/votes/:id' do
       @vote = Vote.new(value: 1, user_id: current_user.id)
       current_question.votes << @vote
     elsif params[:uservote] == "downvote"
-      @vote = Vote.new(value: -1)
+      @vote = Vote.new(value: -1, user_id: current_user.id)
       current_question.votes << @vote
     end
 
@@ -27,17 +27,20 @@ end
 
 post '/answers/votes/:id' do
 
+answer_question_id = Answer.find(params[:id]).question_id
 
-  if logged_in? && !has_voted?(current_user.id)
+current_answer = Answer.find(params[:id])
+
+
+  if logged_in? && !has_voted_on_answer?(current_user.id, current_answer)
     if params[:uservote] == "upvote"
-      @vote = Vote.new(value: 1)
+      @vote = Vote.new(value: 1, user_id: current_user.id)
       Answer.find(params[:id]).votes << @vote
     elsif params[:uservote] == "downvote"
-      @vote = Vote.new(value: -1)
+      @vote = Vote.new(value: -1, user_id: current_user.id)
       Answer.find(params[:id]).votes << @vote
     end
 
-    answer_question_id = Answer.find(params[:id]).question_id
     if @vote.save
       redirect "/questions/#{answer_question_id}"
     else
