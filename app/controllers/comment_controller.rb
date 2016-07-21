@@ -16,7 +16,7 @@ post '/comments/:id' do
   end
 
     if new_comment.save
-      redirect "questions/#{current_question.id}"
+      redirect "/questions/#{current_question.id}"
     else
       @error = "Blank Field"
       erb :'login/error'
