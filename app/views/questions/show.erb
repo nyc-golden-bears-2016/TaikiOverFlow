@@ -16,10 +16,13 @@
     <div class="col-2">
       <div class="question-body">
         <%= @question.body %>
+      </div>
+        <div class="question-comments">
         <% @question_comments.each do |comment| %>
           <%= comment.body %>
         <% end %>
-      </div>
+        </div>
+
        <% if logged_in? %>
             <div id="comment-form" class="form-wrap">
             <form class="form" action="/comments/<%=@question.id%>" method="post">
@@ -33,9 +36,6 @@
           <% end %>
     </div>
 </div>
-
-
-
 
 
  <% @answers.each do |a|  %>
@@ -53,9 +53,9 @@
 
     <div class="question-answer"><%= a.body %></div>
       <% a.comments.each do |comment| %>
-      <div class="question-answer"><%= a.body %></div>
       <div class="comment-answer"><%= comment.body %></div>
       <% end %>
+
     <% if logged_in? %>
             <div id="comment-form" class="form-wrap">
             <form class="form" action="/comments/<%=a.id%>" method="post">

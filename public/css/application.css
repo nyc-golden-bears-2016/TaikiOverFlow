@@ -205,8 +205,8 @@ h1{
 }
 
 .question-answer {
-    border-top:1px solid #eee;
-    border-bottom:1px sold #eee;
+    /*border-top:1px solid #eee;*/
+    border-bottom:1px solid #eee;
     margin-bottom:20px;
     padding:20px 0px;
 }
@@ -238,6 +238,14 @@ h1{
     border-style:solid;
 }
 
+/*comments*/
+
+.comment-answer{
+  padding-left: 100px;
+  background-color:#efefef;
+  padding:5px;
+  margin-left:50px;
+}
 
 /*statuses */
 
