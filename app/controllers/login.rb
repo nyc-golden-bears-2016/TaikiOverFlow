@@ -2,12 +2,6 @@ get '/login' do
   erb :'login/login'
 end
 
-get '/logged_in/:id' do
-  @user = current_user
-  erb :'login/logged_in'
-end
-
-
 get '/register' do
 
   erb :'login/register'
@@ -34,7 +28,7 @@ post '/login' do
   user = User.find_by(email: params[:user][:email])
     if user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-    redirect "/logged_in/#{session[:user_id]}"
+    redirect "/"
     else
       @error = ["Incorrect User Name or Password"]
       erb :'login/error'

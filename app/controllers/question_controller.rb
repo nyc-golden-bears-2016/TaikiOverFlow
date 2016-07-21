@@ -5,26 +5,35 @@ get '/' do
 end
 
 get '/questions/new' do
-  erb :'/questions/new'
+
+  if logged_in?
+    erb :'/questions/new'
+  else
+    @error = ["You Must Be Logged In To Post A Question"]
+    erb :'login/error'
+  end
+
 end
 
 post '/questions' do
-  new_question = Question.create(params[:question])
+  new_question = Question.create(params[:question].merge(user_id: current_user))
 
   if new_question.save
     redirect '/'
   else
-    "error"
+    @error = ["Not all fields added"]
+    erb :'login/error'
   end
 end
 
 get '/questions/:id' do
-  @answers = Answer.where(question_id: params[:id])
+  @answer = Answer.where(question_id: params[:id])
   @question = Question.find(params[:id])
-
   session[:question_id] = params[:id]
+  session[:answer_id] = @answer.id
 
-  erb :'questions/show'
+    erb :'questions/show'
+
 end
 
 get '/questions' do

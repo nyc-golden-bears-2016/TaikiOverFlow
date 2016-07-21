@@ -1,12 +1,7 @@
-post "/answers" do
-  question_id = session[:question_id]
+post "/answer" do
 
-  @answer  = Answer.new(body: params[:answer], question_id: question_id, user_id: session[:user_id])
+  answer  = Answer.new(params["answer"].merge(user_id: current_user, question_id: current_question))
+  # add helper method to find current_question
 
-  if @answer.save
-    redirect "/questions/#{session[:question_id]}"
-  else
-    error
-  end
-
-end
+  if answer.save
+    redirect "/questions/#{current_question.id}"
