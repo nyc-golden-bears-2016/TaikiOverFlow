@@ -5,7 +5,13 @@
 </div>
 <div class="col-group">
     <div class="col-1 vote">
-      <span class="counter">0</span>
+      <form action="/questions/votes/<%= @question.id  %>" method="post">
+        <button type="submit" name="uservote" class="counter arrow-up" value="upvote"></button>
+      </form>
+      <%= vote_count(@question.votes)%>
+      <form action="/questions/votes/<%= @question.id  %>" method="post">
+        <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
+      </form>
     </div>
     <div class="col-2">
       <div class="question-body">
@@ -16,9 +22,26 @@
 
 
 
-  <% @answers.each do |a|  %>
+
+
+ <% @answers.each do |a|  %>
+<div class="col-group">
+  <div class="col-1 vote">
+            <form action="/answers/votes/<%= a.id  %>" method="post">
+              <button type="submit" name="uservote" class="counter arrow-up" value="upvote"></button>
+            </form>
+      <%= vote_count(a.votes)%>
+            <form action="/answers/votes/<%= a.id  %>" method="post">
+        <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
+      </form>
+  </div>
+  <div class="col-2 ">
+
     <div class="question-answer"><%= a.body %></div>
-  <% end %>
+
+  </div>
+</div>
+ <% end %>
 
 
 <% if logged_in? %>
