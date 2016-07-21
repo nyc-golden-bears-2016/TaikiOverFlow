@@ -15,7 +15,7 @@ post '/register' do
 
   if @new_user.save
     session[:user_id] = @new_user.id
-    redirect "/logged_in/#{session[:user_id]}"
+    redirect "/"
   else
     @error = ["Not All Information Supplied For Registration"]
     erb :'login/error'
@@ -37,7 +37,7 @@ end
 
 
 
-delete '/logout' do
+get '/logout' do
   session.clear
   redirect "/"
 end

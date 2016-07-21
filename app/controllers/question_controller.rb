@@ -9,14 +9,14 @@ get '/questions/new' do
   if logged_in?
     erb :'/questions/new'
   else
-    @error = ["You Must Be Logged In To Post A Question"]
+    @error = "You Must Be Logged In To Post A Question"
     erb :'login/error'
   end
 
 end
 
 post '/questions' do
-  new_question = Question.create(params[:question].merge(user_id: current_user))
+  new_question = Question.create(params[:question].merge(user_id: current_user.id))
 
   if new_question.save
     redirect '/'
@@ -27,10 +27,9 @@ post '/questions' do
 end
 
 get '/questions/:id' do
-  @answer = Answer.where(question_id: params[:id])
+  @answers = Answer.where(question_id: params[:id])
   @question = Question.find(params[:id])
   session[:question_id] = params[:id]
-  session[:answer_id] = @answer.id
 
     erb :'questions/show'
 
