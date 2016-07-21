@@ -50,7 +50,7 @@ if logged_in?
 
 else
   @error = "You must login to vote"
-  redirect "/questions/#{qid}"
+  redirect "/questions/#{id}"
 end
 
 end
