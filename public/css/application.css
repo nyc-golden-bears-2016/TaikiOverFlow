@@ -104,7 +104,7 @@ h1{
 .list-wrap{padding:20px;}
 
 /*** LOGIN  FROM STYLING **/
-#question-form, #answer-form {
+#question-form, #answer-form,#comment-form {
     background:#fff;
     border-color:#ccc;
     width:100%;
@@ -115,12 +115,16 @@ h1{
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
+
+#comment-form {
+ padding:5px 20px;
+}
 #question-form input[type="text"],#question-form textarea,
-#answer-form textarea{
+#answer-form textarea,#comment-form textarea{
   border:1px solid #ccc;
 }
 
-#question-form label,#answer-form label{
+#question-form label,#answer-form label,#comment-form label{
   color:#005999;
 }
 
@@ -205,8 +209,8 @@ h1{
 }
 
 .question-answer {
-    border-top:1px solid #eee;
-    border-bottom:1px sold #eee;
+    /*border-top:1px solid #eee;*/
+    border-bottom:1px solid #eee;
     margin-bottom:20px;
     padding:20px 0px;
 }
@@ -236,6 +240,15 @@ h1{
     border-width:10px 10px 0px 10px;
     border-color:#999 transparent transparent transparent;
     border-style:solid;
+}
+
+/*comments*/
+
+.comment-answer{
+  padding-left: 100px;
+  background-color:#efefef;
+  padding:5px;
+  margin-left:50px;
 }
 
 

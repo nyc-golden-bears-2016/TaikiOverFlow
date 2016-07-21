@@ -31,6 +31,7 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   @comments = Comment.all
   session[:question_id] = params[:id]
+  @question_comments = current_question.comments
 
     erb :'questions/show'
 

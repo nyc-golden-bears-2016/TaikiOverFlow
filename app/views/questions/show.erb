@@ -29,32 +29,13 @@
           <% end %>
 
       </div>
+        <div class="question-comments">
+        <% @question_comments.each do |comment| %>
+          <%= comment.body %>
+        <% end %>
+        </div>
     </div>
 </div>
-
-
-
-
-<% @answers.each do |a|  %>
-   <% @comments.each do |comment| %>
-      <div class="question-answer"><%= a.body %></div>
-      <div class="comment-answer"><%= comment.body %></div>
-
-     <% if logged_in? %>
-            <div id="comment-form" class="form-wrap">
-            <form class="form" action="/comments/<%=a.id%>" method="post">
-              <div>
-                <label for="abswer">Comment:</label>
-                <textarea rows='3' type="text" name="comment[body]"></textarea>
-              </div>
-              <input type="submit" value="Comment">
-            </form>
-            </div>
-      <% end %>
-  <% end %>    
-<% end %>
-
-
 
  <% @answers.each do |a|  %>
 <div class="col-group">
@@ -70,18 +51,25 @@
   <div class="col-2 ">
 
     <div class="question-answer"><%= a.body %></div>
+      <% a.comments.each do |comment| %>
+      <div class="comment-answer"><%= comment.body %></div>
+      <% end %>
+
+    <% if logged_in? %>
+            <div id="comment-form" class="form-wrap">
+            <form class="form" action="/comments/<%=a.id%>" method="post">
+              <div>
+                <label for="abswer">Comment:</label>
+                <textarea rows='1' type="text" name="comment[body]"></textarea>
+              </div>
+              <input type="submit" value="Comment">
+            </form>
+            </div>
+      <% end %>
 
   </div>
 </div>
  <% end %>
-
-
-
-
-<% end %>
-
-
-
 
 <% if logged_in? %>
   <div id="answer-form" class="form-wrap">
