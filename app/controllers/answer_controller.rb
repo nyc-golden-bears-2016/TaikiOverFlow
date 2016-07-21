@@ -10,3 +10,16 @@ post "/answer" do
   end
 
 end
+
+get '/answer/:id' do
+
+
+    @question = Question.find(params[:id])
+    session[:question_id] = params[:id]
+    @answer = Answer.find(params[:id])
+    session[:answer_id] = params[:id]
+
+    erb :'answers/show'
+
+end
+

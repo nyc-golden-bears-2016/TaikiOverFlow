@@ -1,0 +1,12 @@
+<form method="post" action="/votes/<%=current_question%>">
+  <input type="hidden" name="vote[1]">
+  <input type="submit" value="upvote" class="button">
+</form>
+
+
+<form method="post" action="/votes/<%=current_question%>">
+  <input type="hidden" name="vote[-1]">
+  <input type="submit" value="downvote" class="button">
+</form>
+
+
