@@ -211,27 +211,37 @@ h1{
     padding:20px 0px;
 }
 
-span.counter{
+.counter{
     position:relative;
+    border:0px;
+    background-color:transparent;
 }
-span.counter:before ,span.counter:after{
+.arrow-up:before ,.arrow-down:after{
     content:'';
     position:absolute;
-    left:-5px;
-    right:0;
+    right:-3px;
     margin:auto;
     display:inline-block;
     border-style:solid;
 }
-span.counter:before{
-  top:-15px;
+
+.arrow-up:before{
+  top:-8px;
   border-width:0px 10px 10px;
   border-color:transparent transparent #999 transparent;
 }
 
-span.counter:after {
-    bottom:-15px;
+.arrow-down:after {
+    top: -10px;
     border-width:10px 10px 0px 10px;
     border-color:#999 transparent transparent transparent;
     border-style:solid;
+}
+
+
+/*statuses */
+
+.current_user {
+    color: #fff;
+    float: left;
 }
