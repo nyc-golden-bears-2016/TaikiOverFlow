@@ -37,6 +37,17 @@
     </div>
 </div>
 
+
+<% @answers.each do |answer|  %>
+
+    <% if answer.best_answer == true %>
+      <p>BEST ANSWER: answer</p>
+    <%end%>
+
+<%end%>
+
+
+
  <% @answers.each do |a|  %>
 <div class="col-group">
   <div class="col-1 vote">
@@ -49,8 +60,7 @@
       </form>
   </div>
   <div class="col-2 ">
-
-    <div class="question-answer"><%= a.body %></div>
+    <div class="question-answeår"><%= a.body %></div>
       <% a.comments.each do |comment| %>
       <div class="comment-answer"><%= comment.body %></div>
       <% end %>
