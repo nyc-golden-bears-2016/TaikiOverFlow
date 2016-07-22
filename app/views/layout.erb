@@ -22,7 +22,7 @@
     <div class="top-bar">
       <div class="contain">
        <% if logged_in? %>
-      <span class="current_user">logged in as <%= current_user.name %></span>
+      <span class="current_user">logged in as <a href="/user/show/<%= current_user.id %>"><%= current_user.name %></a> </span>
         <% end %>
       <nav id="nav">
         <ul>

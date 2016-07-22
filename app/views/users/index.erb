@@ -1,0 +1,45 @@
+<div class="profile-background">
+</div>
+<div id="porfolio" class="col-group">
+  <div class="col-1">
+
+  <div class="profile-image"><img src="https://lh4.googleusercontent.com/ESZhbWSpa1FgBzcTQOtXMQtD0xdjt4tCTaTiv7HrHBwa-fCupjZpquCsG7iEJv07brBVSbFxIMi7Z16G_sWViwKXlxOduAM9FY1C-3tX1r8dI4DYXqws8Q9s4u0D-90r-ab4dQLO">
+  </div>
+
+  </div>
+  <div class="col-2">
+    <table>
+      <tr>
+          <td>Rep</td>
+          <td>number of questions</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<div class="question-header">
+  <h2>My Questions</h2>
+</div>
+
+  <% @user.each do |questions| %>
+
+  <div class="question-summary">
+      <section class="rating">
+        <table>
+          <tr>
+            <td>
+              <span class=""><%= questions.votes.count %> </span>
+              <p>votes</p>
+            </td>
+            <td>
+                <span><%= questions.answers.count%></span>
+              <p>answers</p>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <article class="summary"><a href="/questions/<%= questions.id %>"><%= questions.title %></a></article>
+  </div>
+
+<% end %>

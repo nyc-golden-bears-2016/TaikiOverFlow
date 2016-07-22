@@ -4,8 +4,6 @@ $(document).ready(function() {
 
   var question_id = $(this).prev().val();
 
-	//ここをなんとかしてquestion_idを取得させる
-
 		var request = $.ajax({
       method: 'POST',
       url: '/questions/votes/'+question_id,
@@ -21,4 +19,20 @@ $(document).ready(function() {
       });
 
 	});
+
+
+  $('#comment-form').submit(function(event){
+      event.preventDefault();
+
+    $.ajax({
+        url: $(this).attr('action'),
+        method: $(this).attr('method')
+    }).done(function(response))
+
+
+
+
+
+    })
+
 });
