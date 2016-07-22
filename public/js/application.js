@@ -1,7 +1,24 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+	$('#question_arrow-up').click(function(event){
+		event.preventDefault();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  var question_id = $(this).prev().val();
+
+	//ここをなんとかしてquestion_idを取得させる
+
+		var request = $.ajax({
+      method: 'POST',
+      url: '/questions/votes/'+question_id,
+      data: {uservote: "upvote"}
+    });//.done(function(response){
+      // $('#die-container').html("<div class=\"die\"> <span class=\"roll\">"+response+"</span> </div>")
+      //$('#question_votes').html(response);
+      //      });
+      request.done(function(response){
+      	// alert('request done');
+			$('#question_votes').html(response);
+
+      });
+
+	});
 });
