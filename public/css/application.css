@@ -372,7 +372,7 @@ h1{
 }
 .profile-background {
   -ms-transform: rotate(-3deg);
-    -webkit-transform: rotate(-3deg)
+    -webkit-transform: rotate(-3deg);
    transform: rotate(-3deg);
    background-image: url('https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg');
    background-size:cover;
