@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$('#question_arrow-up').click(function(event){
 		event.preventDefault();
 	  var question_id = $(this).prev().val();
+
 		var request = $.ajax({
 	    method: 'POST',
 	    url: '/questions/votes/'+question_id,
@@ -24,6 +25,5 @@ $(document).ready(function() {
 			$('#question_votes').html(response);
 		});
 	});
-
 
 });

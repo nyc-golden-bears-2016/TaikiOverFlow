@@ -4,6 +4,7 @@ put '/best_answer/:id' do
 
     answers.each do |answer|
       answer.best_answer = false
+      answer.save
     end
 
     answer = answers.find(params[:id])
