@@ -337,6 +337,23 @@ h1{
 }
 
 /*profile page*/
+
+.count-question {
+    font-size:30px;
+    background: #96905c;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    text-align: center;
+    vertical-align:middle;
+    display:table-cell;
+}
+
+.count-question p{
+    margin:0px;
+    font-size:10px;
+
+}
 .current_user {
     padding: 15px 0px;
 }
@@ -354,14 +371,17 @@ h1{
     height:150px;
 }
 .profile-background {
+  -ms-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg)
+   transform: rotate(-3deg);
    background-image: url('https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg');
-    background-size:cover;
-    background-attachment: fixed;
-    background-color: rgb(70, 77, 95);
-    height: 173px;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
+   background-size:cover;
+   background-attachment: fixed;
+   background-color: rgb(138, 163, 179);
+   height: 192px;
+   position: absolute;
+   width: 100%;
+   top: 0px;
+   left: 0;
+   z-index: -1;
 }
