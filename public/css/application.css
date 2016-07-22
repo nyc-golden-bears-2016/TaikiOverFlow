@@ -109,21 +109,27 @@ h1{
 .delete-btn {
     float: right;
 }
-.question-comments{
+.question-comments, .comment-answer {
+
   -webkit-border-radius:5px;
   border-radius:5px;
   margin:10px 0px 10px 50px;
   background-color:#fbf9d7;
+
 }
-.question-comments ul{
+.question-comments ul, .comment-answer ul {
   list-style: none;
   margin:0px;
   padding:0px;
 }
-.question-comments li{
+.question-comments li, .comment-answer li{
   color:#86823c;
   padding:8px;
   border-bottom:1px solid #f1eec5;
+}
+
+.question-comments li:last-child, .comment-answer li:last-child{
+  border-bottom:0px;
 }
 
 .rating{padding:10px 0px;}
@@ -307,12 +313,12 @@ h1{
 
 /*comments*/
 
-.comment-answer{
+/*.comment-answer{
   padding-left: 100px;
   background-color:#efefef;
   padding:5px;
   margin-left:50px;
-}
+}*/
 .comment-btn{
   font-size: .8em;
   cursor:pointer;
