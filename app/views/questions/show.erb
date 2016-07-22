@@ -19,6 +19,15 @@
         <%= @question.body %>
       </div>
       <% if logged_in? %>
+      <div class="question-comments">
+        <ul>
+          <% @question_comments.each do |comment| %>
+          <li>
+            <%= comment.body %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
       <div id="comment-form" class="form-wrap">
         <form class="form" action="/comments/<%=@question.id%>" method="post">
           <div>
@@ -68,8 +77,9 @@
   </div>
   <div class="col-2 ">
 
+    <% if a.best_answer == false %>
         <div class="question-answer"><%= a.body %></div>
-
+    <%end%>
 
 
 
