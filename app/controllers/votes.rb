@@ -1,6 +1,6 @@
 post '/questions/votes/:id' do
 
-  if logged_in? #&& !has_voted?(current_user.id)
+  if logged_in? && !has_voted?(current_user.id)
     if params[:uservote] == "upvote"
       @vote = Vote.new(value: 1, user_id: current_user.id)
       current_question.votes << @vote
@@ -39,11 +39,12 @@ current_answer = Answer.find(params[:id])
       Answer.find(params[:id]).votes << @vote
     end
 
-    if @vote.save
-      redirect "/questions/#{answer_question_id}"
+    if request.xhr?
+      return vote_count(current_answer.votes).to_s
     else
-      redirect "/questions/#{answer_question_id}"
+      redirect "/questions/#{params[:id]}"
     end
+
 
 
   else
