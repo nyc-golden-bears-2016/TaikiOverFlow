@@ -1,24 +1,29 @@
 $(document).ready(function() {
 	$('#question_arrow-up').click(function(event){
 		event.preventDefault();
-
-  var question_id = $(this).prev().val();
-
-	//ここをなんとかしてquestion_idを取得させる
-
+	  var question_id = $(this).prev().val();
 		var request = $.ajax({
-      method: 'POST',
-      url: '/questions/votes/'+question_id,
-      data: {uservote: "upvote"}
-    });//.done(function(response){
-      // $('#die-container').html("<div class=\"die\"> <span class=\"roll\">"+response+"</span> </div>")
-      //$('#question_votes').html(response);
-      //      });
-      request.done(function(response){
-      	// alert('request done');
+	    method: 'POST',
+	    url: '/questions/votes/'+question_id,
+	    data: {uservote: "upvote"}
+	  });
+		request.done(function(response){
 			$('#question_votes').html(response);
-
-      });
-
+		});
 	});
+
+	$('#question_arrow-down').click(function(event){
+		event.preventDefault();
+	  var question_id = $(this).prev().val();
+		var request = $.ajax({
+	    method: 'POST',
+	    url: '/questions/votes/'+question_id,
+	    data: {uservote: "downvote"}
+	  });
+		request.done(function(response){
+			$('#question_votes').html(response);
+		});
+	});
+
+
 });
