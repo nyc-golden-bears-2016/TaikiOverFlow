@@ -15,6 +15,8 @@ post '/questions/votes/:id' do
       redirect "/questions/#{params[:id]}"
     end
 
+  elsif request.xhr?
+    return vote_count(current_question.votes).to_s
   else
     @error = "You must login to vote"
     redirect "/questions/#{params[:id]}"
@@ -28,7 +30,6 @@ post '/answers/votes/:id' do
 answer_question_id = Answer.find(params[:id]).question_id
 
 current_answer = Answer.find(params[:id])
-
 
   if logged_in? && !has_voted_on_answer?(current_user.id, current_answer)
     if params[:uservote] == "upvote"
@@ -45,8 +46,8 @@ current_answer = Answer.find(params[:id])
       redirect "/questions/#{params[:id]}"
     end
 
-
-
+  elsif request.xhr?
+    return vote_count(current_answer.votes).to_s
   else
     @error = "You must login to vote"
     redirect "/questions/#{answer_question_id}"
