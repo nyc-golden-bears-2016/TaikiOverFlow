@@ -42,10 +42,21 @@ h1{
     display:inline;
 }
 #nav li a{
-    padding:5px;
     display:inline-block;
     color:#fff;
     text-decoration:none;
+    background-color: #404d56;
+    padding:15px 20px;
+    border: 1px solid #212c33;
+    border-radius:5px;
+    -webkit-transition:all 250ms ease-in-out;
+    -moz-transition:all 250ms ease-in-out;
+    -ms-transition:all 250ms ease-in-out;
+    -o-transition:all 250ms ease-in-out;
+    transition:all 250ms ease-in-out;
+}
+#nav li a:hover{
+  background-color:orange;
 }
 
 .contain{
@@ -68,24 +79,22 @@ h1{
   color: #2e3646;
   text-transform: capitalize;
 }
+.question-summary{
+  border-bottom:1px solid #eee;
+}
 .question-summary:after {
     content:'';
     display:block;
     clear:both;
 }
-.question-summary:last-child {
-  border-bottom: 1px solid #ccc;
-}
 .rating{padding:10px 0px;}
 .rating,.summary {
     display: inline;
-    border-top: 1px solid #ccc;
     float: left;
 }
 
 .rating{
   text-align:center;
-  /*border-right:1px dotted #ccc;*/
   width: 20%;
 }
 .rating table{
@@ -264,7 +273,9 @@ h1{
 }
 
 /*profile page*/
-
+.current_user {
+    padding: 15px 0px;
+}
 #porfolio{
   color:#fff;
 }
