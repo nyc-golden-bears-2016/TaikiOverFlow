@@ -27,8 +27,6 @@ end
 
 post '/answers/votes/:id' do
 
-answer_question_id = Answer.find(params[:id]).question_id
-
 current_answer = Answer.find(params[:id])
 
   if logged_in? && !has_voted_on_answer?(current_user.id, current_answer)
@@ -50,7 +48,7 @@ current_answer = Answer.find(params[:id])
     return vote_count(current_answer.votes).to_s
   else
     @error = "You must login to vote"
-    redirect "/questions/#{answer_question_id}"
+    redirect "/questions/#{current_answer.question_id}"
   end
 
 end
