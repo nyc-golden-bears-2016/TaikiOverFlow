@@ -79,9 +79,15 @@
         <div class="question-answer"><%= a.body %></div>
 
 
-      <% a.comments.each do |comment| %>
-      <div class="comment-answer"><%= comment.body %></div>
-      <% end %>
+
+      <div class="comment-answer">
+        <ul>
+          <% a.comments.each do |comment| %>
+          <li><%= comment.body %></li>
+          <% end %>
+        </ul>
+      </div>
+
 
     <% if logged_in? %>
             <div id="comment-form" class="form-wrap">
