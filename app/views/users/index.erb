@@ -22,29 +22,29 @@
   <h2>My Questions</h2>
 </div>
 
-  <% @user.each do |questions| %>
+  <% @questions.each do |question| %>
 
   <div class="question-summary">
       <section class="rating">
         <table>
           <tr>
             <td>
-              <span class=""><%= questions.votes.count %> </span>
+              <span class=""><%= question.votes.count %> </span>
               <p>votes</p>
             </td>
             <td>
-                <span><%= questions.answers.count%></span>
+                <span><%= question.answers.count%></span>
               <p>answers</p>
             </td>
           </tr>
         </table>
       </section>
       <article class="summary">
-        <form class="delete-btn" action="/questions/<%= current_question.id %>" method="post">
+        <form class="delete-btn" action="/questions/<%= questiont .id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <button type="submit" name="delete"></button>
         </form>
-        <a href="/questions/<%= questions.id %>"><%= questions.title %></a>
+        <a href="/questions/<%= question.id %>"><%= question.title %></a>
       </article>
   </div>
 
