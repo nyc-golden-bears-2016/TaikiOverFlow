@@ -53,11 +53,14 @@
 <div class="col-group">
   <div class="col-1 vote">
             <form action="/answers/votes/<%= a.id  %>" method="post">
-              <button type="submit" name="uservote" class="counter arrow-up"  id="answer_<%= a.id  %>_arrow-up" value="upvote"></button>
+              <input type="hidden" name="answer_id" value="<%= a.id  %>">
+              <button type="submit" name="uservote" class="counter arrow-up"  id="answer_arrow-up_<%= a.id  %>" value="upvote"></button>
             </form>
-      <%= vote_count(a.votes)%>
+      <span id="answer_votes_<%= a.id  %>"><%= vote_count(a.votes)%></span>
             <form action="/answers/votes/<%= a.id  %>" method="post">
-        <button type="submit" name="uservote" class="counter arrow-down" id="answer_<%= a.id  %>_arrow-down" value="downvote"></button>
+        <input type="hidden" name="answer_id" value="<%= a.id  %>">
+
+        <button type="submit" name="uservote" class="counter arrow-down" id="answer_arrow-down_<%= a.id  %>" value="downvote"></button>
       </form>
 
 <% if logged_in? %>
