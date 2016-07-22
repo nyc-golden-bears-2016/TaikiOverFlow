@@ -59,18 +59,20 @@
         <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
       </form>
 
-<% if current_user.questions.include?(current_question) %>
-         <form action="/best_answer/<%= a.id  %>" method="post">
-    <input type="hidden" name="_method" value="PUT">
-    <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
-  </form>
+<% if logged_in? %>
+  <% if current_user.questions.include?(current_question) %>
+          <form action="/best_answer/<%= a.id  %>" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
+        </form>
+  <% end %>
 <% end %>
 
   </div>
   <div class="col-2 ">
 
     <% if a.best_answer == false %>
-        <div class="question-answeår"><%= a.body %></div>
+        <div class="question-answer"><%= a.body %></div>
     <%end%>
 
 
