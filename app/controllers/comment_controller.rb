@@ -23,3 +23,11 @@ post '/comments/:id' do
     end
 
 end
+delete "/questions/:id" do
+  if current_user && logged_in?
+    question = Question.find(params[:id])
+    user_id =  question.user_id
+    question.destroy
+    redirect :"/user/show/#{user_id}"
+  end
+end

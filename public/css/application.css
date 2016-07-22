@@ -2,6 +2,9 @@
 body{
   font-family: sans-serif;;
 }
+main.contain{
+  padding:20px;
+}
 a,a:visited{
   color:#005999;
   text-decoration: none;
@@ -89,6 +92,23 @@ h1{
 }
 
 /*comment*/
+.delete-btn button[type="submit"]:hover{
+  background-color: #efedee;
+}
+.delete-btn button[type="submit"]{
+  background-image: url('/images/trash-bin.png');
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  padding: 20px;
+  border: 1px solid #cfcfcf;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+}
+.delete-btn {
+    float: right;
+}
 .question-comments{
   -webkit-border-radius:5px;
   border-radius:5px;
@@ -130,8 +150,13 @@ h1{
 .summary{
   padding: 10px 15px;
   width: 80%;
+  overflow: hidden;
 }
-
+.summary a{
+  width:80%;
+  padding: 10px;
+  float: left;
+}
 .list-wrap{padding:20px;}
 
 /*** LOGIN  FROM STYLING **/
@@ -152,6 +177,9 @@ h1{
   padding:5px 20px;
   margin-bottom:10px;
 }
+#answer-form{
+  margin-top:20px;
+}
 #question-form input[type="text"],#question-form textarea,
 #answer-form textarea,#comment-form textarea{
   border:1px solid #ccc;
@@ -160,6 +188,7 @@ h1{
 #question-form label,#answer-form label,#comment-form label{
   color:#005999;
 }
+
 
 .form-wrap {
     color:#fff;
