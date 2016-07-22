@@ -16,6 +16,16 @@
     <div class="col-2">
       <div class="question-body">
         <%= @question.body %>
+<!-- comment of the question -->
+        <div class="question-comments">
+          <ul>
+        <% @question_comments.each do |comment| %>
+            <li><%= comment.body %></li>
+        <% end %>
+      </ul>
+        </div>
+<!-- end comment of the question -->
+
           <% if logged_in? %>
             <div id="comment-form" class="form-wrap">
             <form class="form" action="/comments/<%=@question.id%>" method="post">
@@ -29,11 +39,7 @@
           <% end %>
 
       </div>
-        <div class="question-comments">
-        <% @question_comments.each do |comment| %>
-          <%= comment.body %>
-        <% end %>
-        </div>
+
     </div>
 </div>
 
@@ -45,8 +51,6 @@
     <%end%>
 
 <%end%>
-
-
 
  <% @answers.each do |a|  %>
 <div class="col-group">
@@ -70,7 +74,7 @@
   <div class="col-2 ">
 
     <% if a.best_answer == false %>
-        <div class="question-answeår"><%= a.body %></div>
+        <div class="question-answer"><%= a.body %></div>
     <%end%>
 
 
