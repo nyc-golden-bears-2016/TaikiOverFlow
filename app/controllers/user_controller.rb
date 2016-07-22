@@ -1,6 +1,7 @@
 get '/user/show/:id' do
   if logged_in?
-  @questions = User.find(params[:id]).questions
+  @user= current_user
+  @questions = @user.questions
 
   erb :'users/index'
 

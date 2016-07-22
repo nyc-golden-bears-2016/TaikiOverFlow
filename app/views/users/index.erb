@@ -10,12 +10,25 @@
   <div class="col-2">
     <table>
       <tr>
-          <td>Rep</td>
-          <td>number of questions</td>
+          <td> &nbsp;</td>
+          <td>
+            <div class="count-question">
+            <%= @questions.count %>
+            <p># questions</p>
+            </div>
+          </td>
       </tr>
     </table>
   </div>
 
+</div>
+<div class="question-header">
+  <h2><%= @user.name %></h2>
+</div>
+<div class="user-info">
+  <p>
+  <%= @user.email %>
+  </p>
 </div>
 
 <div class="question-header">
