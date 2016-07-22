@@ -6,11 +6,12 @@
 <div class="col-group">
     <div class="col-1 vote">
       <form action="/questions/votes/<%= @question.id  %>" method="post">
-        <button type="submit" name="uservote" class="counter arrow-up" value="upvote"></button>
+        <input type="hidden" name="question_id" value="<%= @question.id  %>">
+        <button type="submit" name="uservote" class="counter arrow-up" id="question_arrow-up" value="upvote"></button>
       </form>
-      <%= vote_count(@question.votes)%>
+      <span id="question_votes"><%= vote_count(@question.votes)%></span>
       <form action="/questions/votes/<%= @question.id  %>" method="post">
-        <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
+        <button type="submit" name="uservote" class="counter arrow-down"  id="question_arrow-down" value="downvote"></button>
       </form>
     </div>
     <div class="col-2">
@@ -56,18 +57,20 @@
 <div class="col-group">
   <div class="col-1 vote">
             <form action="/answers/votes/<%= a.id  %>" method="post">
-              <button type="submit" name="uservote" class="counter arrow-up" value="upvote"></button>
+              <button type="submit" name="uservote" class="counter arrow-up"  id="answer_<%= a.id  %>_arrow-up" value="upvote"></button>
             </form>
       <%= vote_count(a.votes)%>
             <form action="/answers/votes/<%= a.id  %>" method="post">
-        <button type="submit" name="uservote" class="counter arrow-down" value="downvote"></button>
+        <button type="submit" name="uservote" class="counter arrow-down" id="answer_<%= a.id  %>_arrow-down" value="downvote"></button>
       </form>
 
-<% if current_user.questions.include?(current_question) %>
-         <form action="/best_answer/<%= a.id  %>" method="post">
-    <input type="hidden" name="_method" value="PUT">
-    <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
-  </form>
+<% if logged_in? %>
+  <% if current_user.questions.include?(current_question) %>
+          <form action="/best_answer/<%= a.id  %>" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <button type="submit" name="best_answer" class="best_answer_button" value="Best"></button>
+        </form>
+  <% end %>
 <% end %>
 
   </div>
