@@ -2,6 +2,9 @@
 body{
   font-family: sans-serif;;
 }
+main.contain{
+  padding:20px;
+}
 a,a:visited{
   color:#005999;
   text-decoration: none;
@@ -42,10 +45,21 @@ h1{
     display:inline;
 }
 #nav li a{
-    padding:5px;
     display:inline-block;
     color:#fff;
     text-decoration:none;
+    background-color: #404d56;
+    padding:15px 20px;
+    border: 1px solid #212c33;
+    border-radius:5px;
+    -webkit-transition:all 250ms ease-in-out;
+    -moz-transition:all 250ms ease-in-out;
+    -ms-transition:all 250ms ease-in-out;
+    -o-transition:all 250ms ease-in-out;
+    transition:all 250ms ease-in-out;
+}
+#nav li a:hover{
+  background-color:orange;
 }
 
 .contain{
@@ -68,24 +82,58 @@ h1{
   color: #2e3646;
   text-transform: capitalize;
 }
+.question-summary{
+  border-bottom:1px solid #eee;
+}
 .question-summary:after {
     content:'';
     display:block;
     clear:both;
 }
-.question-summary:last-child {
-  border-bottom: 1px solid #ccc;
+
+/*comment*/
+.delete-btn button[type="submit"]:hover{
+  background-color: #efedee;
 }
+.delete-btn button[type="submit"]{
+  background-image: url('/images/trash-bin.png');
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  padding: 20px;
+  border: 1px solid #cfcfcf;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+}
+.delete-btn {
+    float: right;
+}
+.question-comments{
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  margin:10px 0px 10px 50px;
+  background-color:#fbf9d7;
+}
+.question-comments ul{
+  list-style: none;
+  margin:0px;
+  padding:0px;
+}
+.question-comments li{
+  color:#86823c;
+  padding:8px;
+  border-bottom:1px solid #f1eec5;
+}
+
 .rating{padding:10px 0px;}
 .rating,.summary {
     display: inline;
-    border-top: 1px solid #ccc;
     float: left;
 }
 
 .rating{
   text-align:center;
-  /*border-right:1px dotted #ccc;*/
   width: 20%;
 }
 .rating table{
@@ -102,8 +150,13 @@ h1{
 .summary{
   padding: 10px 15px;
   width: 80%;
+  overflow: hidden;
 }
-
+.summary a{
+  width:80%;
+  padding: 10px;
+  float: left;
+}
 .list-wrap{padding:20px;}
 
 /*** LOGIN  FROM STYLING **/
@@ -120,7 +173,12 @@ h1{
 }
 
 #comment-form {
- padding:5px 20px;
+  transition:all 500ms ease-in-out;
+  padding:5px 20px;
+  margin-bottom:10px;
+}
+#answer-form{
+  margin-top:20px;
 }
 #question-form input[type="text"],#question-form textarea,
 #answer-form textarea,#comment-form textarea{
@@ -130,6 +188,7 @@ h1{
 #question-form label,#answer-form label,#comment-form label{
   color:#005999;
 }
+
 
 .form-wrap {
     color:#fff;
@@ -254,6 +313,14 @@ h1{
   padding:5px;
   margin-left:50px;
 }
+.comment-btn{
+  font-size: .8em;
+  cursor:pointer;
+  color:orange;
+  display: inline-block;
+  border:1px solid #eee;
+  padding:10px 20px;
+}
 
 
 /*statuses */
@@ -264,7 +331,9 @@ h1{
 }
 
 /*profile page*/
-
+.current_user {
+    padding: 15px 0px;
+}
 #porfolio{
   color:#fff;
 }

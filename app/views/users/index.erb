@@ -39,7 +39,13 @@
           </tr>
         </table>
       </section>
-      <article class="summary"><a href="/questions/<%= questions.id %>"><%= questions.title %></a></article>
+      <article class="summary">
+        <form class="delete-btn" action="/questions/<%= current_question.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" name="delete"></button>
+        </form>
+        <a href="/questions/<%= questions.id %>"><%= questions.title %></a>
+      </article>
   </div>
 
 <% end %>
